@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { TextBlock } from "@anthropic-ai/sdk/resources/index.mjs";
 
 export interface AiService {
-  getAnswer(question: string, additionalContext: string): Promise<string>;
+  getAnswer(question: string, additionalContexts: string[]): Promise<string>;
 };
 
 export class AiServiceImpl implements AiService {
@@ -12,12 +12,10 @@ export class AiServiceImpl implements AiService {
     this.anthropic = new Anthropic();
   }
 
-  async getAnswer(question: string, additionalContext: string): Promise<string> {
+  async getAnswer(question: string, additionalContexts: string[]): Promise<string> {
     const content = `
     <documents>
-      <document index="0">
-        ${additionalContext}
-      </document>
+      ${additionalContexts.map((c, i) => `<document index=${i}>${c}</document>`).join('')}
     </documents>
     In 160 characters or less, answer the following question: ${question}.
     Don't repeat the question in your answer. Only provide the succinct answer.`;
