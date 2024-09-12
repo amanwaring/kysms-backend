@@ -28,7 +28,7 @@ export class AiServiceImpl implements AiService {
   private async getAnswerFromAnthropic(content: string): Promise<string> {
     console.log('getting answer from anthropic');
     const aiResponse = await this.anthropic.messages.create({
-      model: 'claude-3-haiku-20240307',
+      model: process.env.ANTHROPIC_MODEL!,
       max_tokens: 1024,
       messages: [{
         role: 'user',
