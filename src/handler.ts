@@ -1,7 +1,7 @@
 import { NewMessageWebhookBody } from "./dto/new-message-webhook-body";
-import { SearchEngineService, SearchEngineServiceImpl } from "../.build/src/service/search-engine.service";
-import { WebScrapeService, WebScrapeServiceImpl } from "../.build/src/service/web-scrape.service";
-import { AiService, AiServiceImpl } from "../.build/src/service/ai.service";
+import { SearchEngineService, SearchEngineServiceImpl } from "./service/search-engine.service";
+import { WebScrapeService, WebScrapeServiceImpl } from "./service/web-scrape.service";
+import { AiService, AiServiceImpl } from "./service/ai.service";
 
 const searchEngineService: SearchEngineService = new SearchEngineServiceImpl();
 const webScrapeService: WebScrapeService = new WebScrapeServiceImpl();
