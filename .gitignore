@@ -131,3 +131,4 @@ dist
 
 .serverless
 .build
+.env
