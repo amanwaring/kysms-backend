@@ -34,3 +34,10 @@ export const newMessageWebhook = async (event) => {
     };
   }
 };
+
+export const signup = async (event) => {
+  console.log('signUp', event.body);
+  return {
+    statusCode: 201
+  }
+};

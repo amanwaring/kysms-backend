@@ -11,10 +11,16 @@ provider:
   runtime: nodejs18.x
 
 functions:
-  api:
+  NewMessageWebhook:
     handler: src/handler.newMessageWebhook
     events:
       - httpApi:
           path: /
           method: post
     timeout: 30
+  SignUp:
+    handler: src/handler.signup
+    events:
+      - httpApi:
+          path: /signup
+          method: post
